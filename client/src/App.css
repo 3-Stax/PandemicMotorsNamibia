@@ -1,0 +1,992 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Custom Properties (CSS Variables) */
+:root {
+    --primary: #003366; /* Dark Blue */
+    --secondary: #e63946; /* Red */
+    --accent: #f4a261; /* Orange */
+    --light: #f1faee; /* Light Beige/Off-white */
+    --dark: #1d3557; /* Darker Blue */
+    --gray: #495057; /* Medium Gray */
+
+    /* Typography */
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 1rem; /* 16px */
+    --line-height-base: 1.6;
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    --spacing-2xl: 50px;
+    --spacing-3xl: 80px; /* For section padding */
+    --spacing-4xl: 100px; /* For hero/testimonial padding */
+
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 50px; /* For search bar, filter tags */
+
+    /* Shadows */
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Base Styles (Global Reset & Typography) */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+    background-color: var(--light); /* Using a variable for consistency */
+    color: var(--gray);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    -webkit-font-smoothing: antialiased; /* Better font rendering */
+    -moz-osx-font-smoothing: grayscale; /* Better font rendering */
+}
+
+/* General Utilities */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm); /* Using variable */
+}
+
+section {
+    padding: var(--spacing-3xl) 0; /* Using variable */
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-md); /* Using variable */
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: var(--spacing-sm); /* Using variable */
+    margin-bottom: var(--spacing-xl); /* Increased margin for better separation */
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: var(--border-radius-sm); /* Small radius for the line */
+}
+
+p {
+    margin-bottom: var(--spacing-md); /* Using variable, consistent with headings */
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+/* Screen Reader Only (Accessibility) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Section Specific Intro Text */
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl); /* Using variable */
+    font-size: 1.1rem;
+    line-height: 1.7; /* Slightly more line-height for readability */
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex; /* Use flex for easy icon alignment */
+    align-items: center; /* Vertically align icon and text */
+    justify-content: center; /* Center content horizontally */
+    padding: 12px var(--spacing-lg); /* Using variable */
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm); /* Using variable */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    -webkit-appearance: none; /* Reset appearance for buttons on some browsers */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.btn:hover,
+.btn:focus { /* Added focus state for accessibility */
+    background: var(--dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md); /* Using variable */
+    outline: none; /* Remove default focus outline, will add custom below */
+}
+
+.btn-primary {
+    background: var(--accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: #e76f51; /* A slightly darker shade of accent */
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background: rgba(255, 255, 255, 0.15); /* Slightly more visible on hover */
+    border-color: white; /* Ensure border stays white */
+}
+
+.btn i {
+    margin-right: var(--spacing-sm); /* Using variable */
+}
+
+/* Custom Focus States (for accessibility) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.filter-tag:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: var(--border-radius-sm); /* Match border radius for consistency */
+}
+
+
+/* Header */
+header {
+    background-color: white;
+    box-shadow: var(--shadow-sm); /* Using variable */
+    position: sticky; /* Changed from fixed to sticky for better behavior on some pages */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0; /* Using variable */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm); /* Using variable */
+    text-decoration: none; /* Remove underline from logo link */
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block; /* Remove extra space below image */
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-main {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo-sub {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-top: -3px; /* Fine-tune alignment */
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: var(--spacing-lg); /* Using variable */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    transition: color 0.3s ease;
+    position: relative;
+    padding: var(--spacing-xs) 0; /* Using variable */
+}
+
+nav ul li a:hover,
+nav ul li a:focus { /* Added focus state */
+    color: var(--accent);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    border-radius: var(--border-radius-sm);
+}
+
+.mobile-menu-btn {
+    display: none; /* Hidden by default, shown in media queries */
+    background: none;
+    border: none;
+    font-size: 1.8rem; /* Slightly larger icon */
+    color: var(--primary);
+    cursor: pointer;
+    padding: var(--spacing-xs); /* Added padding for easier click */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-bg.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect */
+    margin-top: 0; /* Ensure no margin from header */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow for readability */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 var(--spacing-md); /* Using variable */
+}
+
+.hero h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: var(--spacing-lg); /* Using variable */
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xl); /* Using variable */
+    opacity: 0.9;
+    line-height: var(--line-height-base);
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md); /* Using variable */
+    flex-wrap: wrap;
+}
+
+/* Cars Section (Inventory) */
+.inventory {
+    background-color: white;
+}
+
+.search-container {
+    margin: var(--spacing-xl) auto; /* Using variable */
+    max-width: 1000px;
+}
+
+.search-bar {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: var(--border-radius-lg); /* Using variable */
+    overflow: hidden;
+    box-shadow: var(--shadow-md); /* Using variable */
+    background-color: white; /* Ensure consistent background */
+}
+
+.search-bar input {
+    flex: 1;
+    padding: var(--spacing-md) var(--spacing-lg); /* Using variables */
+    border: none;
+    font-size: var(--font-size-base);
+    outline: none;
+    color: var(--dark); /* Consistent text color */
+}
+
+.search-bar input::placeholder {
+    color: var(--gray);
+    opacity: 0.7;
+}
+
+.search-btn {
+    padding: 0 var(--spacing-lg); /* Using variable */
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: var(--font-size-base);
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.search-btn:hover,
+.search-btn:focus {
+    background: var(--dark);
+}
+
+.filter-tags {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm); /* Using variable */
+    margin-top: var(--spacing-md); /* Using variable */
+    flex-wrap: wrap;
+}
+
+.filter-tag {
+    padding: var(--spacing-sm) var(--spacing-md); /* Using variables */
+    background: #f0f0f0;
+    border-radius: var(--border-radius-lg); /* Using variable */
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Prevent tags from breaking */
+    user-select: none; /* Prevent text selection */
+}
+
+.filter-tag.active,
+.filter-tag:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg); /* Using variable */
+    margin-top: var(--spacing-lg); /* Using variable */
+}
+
+.car-card {
+    background: white;
+    border-radius: var(--border-radius-md); /* Using variable */
+    overflow: hidden;
+    box-shadow: var(--shadow-md); /* Using variable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Ensure card content flows correctly */
+    flex-direction: column;
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg); /* Using variable */
+}
+
+.car-images {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+}
+
+.car-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    display: block; /* Remove extra space below image */
+}
+
+.car-images img:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.car-card:hover .car-images img:first-child {
+    opacity: 0;
+}
+
+.car-card:hover .car-images img:last-child {
+    opacity: 1;
+}
+
+.car-info {
+    padding: var(--spacing-md); /* Using variable */
+    flex-grow: 1; /* Allow info section to take available space */
+    display: flex;
+    flex-direction: column;
+}
+
+.car-info h3 {
+    margin-bottom: var(--spacing-sm); /* Using variable */
+    font-size: 1.3rem;
+    color: var(--dark); /* Slightly darker for headings */
+}
+
+.car-info p {
+    color: var(--gray);
+    margin-bottom: var(--spacing-md); /* Using variable */
+    font-size: 0.95rem;
+    flex-grow: 1; /* Allow description to take space */
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg); /* Using variable */
+    margin-top: var(--spacing-2xl); /* Using variable */
+}
+
+.service-card {
+    background: white;
+    padding: var(--spacing-lg); /* Using variable */
+    border-radius: var(--border-radius-md); /* Using variable */
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md); /* Slightly more prominent shadow on hover */
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md); /* Using variable */
+    display: inline-block; /* Ensure gradient works on icon */
+}
+
+.service-icon i {
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* For better cross-browser compatibility with gradients on text: */
+    color: var(--accent); /* Fallback color */
+}
+
+.service-card h3 {
+    margin-bottom: var(--spacing-md); /* Using variable, consistent with other text */
+    font-size: 1.3rem;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('images/testimonial-bg.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect */
+    color: white;
+    padding: var(--spacing-4xl) 0; /* Using variable */
+}
+
+.testimonials h2 {
+    color: white;
+}
+
+.testimonials h2::after {
+    background: var(--accent);
+}
+
+.testimonial-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg); /* Using variable */
+    margin-top: var(--spacing-2xl); /* Using variable */
+}
+
+.testimonial {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-lg); /* Using variable */
+    border-radius: var(--border-radius-md); /* Using variable */
+    text-align: center;
+    display: flex; /* Flexbox for consistent height */
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px; /* Ensure a minimum height for visual consistency */
+}
+
+.testimonial-content {
+    font-style: italic;
+    margin-bottom: var(--spacing-md); /* Using variable */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    flex-grow: 1; /* Allow content to grow and push author/rating down */
+}
+
+.testimonial-author {
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm); /* Using variable */
+    color: var(--light); /* Slightly lighter for contrast */
+}
+
+.testimonial-rating {
+    color: var(--accent);
+    font-size: 1rem;
+}
+
+/* Contact Section */
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-2xl); /* Using variable */
+    margin-top: var(--spacing-2xl); /* Using variable */
+}
+
+.contact-info {
+    /* No additional styles needed here, address tag already styled by global */
+}
+
+.contact-info h3 {
+    margin-bottom: var(--spacing-lg); /* Using variable */
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md); /* Using variable */
+}
+
+.contact-detail p {
+    margin-bottom: 0; /* Remove bottom margin for paragraphs inside contact detail */
+}
+
+.contact-detail a {
+    color: var(--gray); /* Keep link color consistent */
+}
+
+.contact-detail a:hover {
+    color: var(--accent);
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-right: var(--spacing-sm); /* Using variable */
+    margin-top: var(--spacing-xs); /* Fine-tune alignment */
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md); /* Using variable */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs); /* Using variable */
+    font-weight: 600;
+    color: var(--dark); /* Make labels slightly darker */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md); /* Using variables */
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-sm); /* Using variable */
+    font-size: var(--font-size-base);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: var(--dark); /* Input text color */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.2); /* Subtle focus ring */
+}
+
+.form-group textarea {
+    min-height: 120px; /* Reduced height slightly, still allows vertical resize */
+    resize: vertical;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 70px 0 30px; /* Kept existing values, can convert to variables if needed */
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl); /* Using variable */
+    margin-bottom: var(--spacing-2xl); /* Using variable */
+}
+
+.footer-col h3 {
+    color: white;
+    margin-bottom: var(--spacing-md); /* Using variable */
+    font-size: 1.3rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0; /* Ensure no default padding from ul */
+}
+
+.footer-col ul li {
+    margin-bottom: var(--spacing-sm); /* Using variable */
+}
+
+.footer-col ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block; /* Ensure padding/margin works consistently */
+}
+
+.footer-col ul li a:hover,
+.footer-col ul li a:focus { /* Added focus state */
+    color: var(--accent);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-sm); /* Using variable */
+    margin-top: var(--spacing-md); /* Using variable */
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+    background: var(--accent);
+    transform: translateY(-3px);
+    outline: none; /* Handled by custom focus-visible */
+}
+
+#newsletterForm input[type="email"] { /* More specific selector for clarity */
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md); /* Using variables */
+    margin-bottom: var(--spacing-md); /* Using variable */
+    border: none; /* Remove default border */
+    border-radius: var(--border-radius-sm); /* Using variable */
+    font-size: var(--font-size-base);
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white */
+    color: var(--dark); /* Ensure text is readable */
+}
+
+#newsletterForm input[type="email"]::placeholder {
+    color: var(--gray);
+    opacity: 0.8;
+}
+
+#newsletterForm .btn {
+    width: 100%; /* Make button full width */
+    text-align: center;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-lg); /* Using variable */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: var(--spacing-lg); /* Added top margin for separation */
+}
+
+/* Responsive Styles */
+/* Mobile First Approach (Alternative - if starting from small screens)
+   For this existing code, keeping current breakpoint structure. */
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .car-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min-width */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: var(--spacing-sm) 0; /* Using variable */
+    }
+    
+    nav {
+        position: fixed;
+        top: 80px; /* Adjusted to match header height */
+        left: -100%; /* Off-screen by default */
+        width: 80%; /* Takes up 80% of screen width */
+        max-width: 300px; /* Cap max width for large tablets */
+        height: calc(100vh - 80px); /* Full height minus header */
+        background: white;
+        box-shadow: var(--shadow-md); /* Using variable */
+        transition: left 0.3s ease-in-out; /* Smoother transition */
+        z-index: 999;
+        overflow-y: auto; /* Enable scrolling for long menus */
+    }
+    
+    nav.active {
+        left: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: var(--spacing-lg); /* Using variable */
+    }
+    
+    nav ul li {
+        margin: var(--spacing-md) 0; /* Using variable */
+    }
+    
+    nav ul li a {
+        font-size: 1.1rem; /* Slightly larger for touch */
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001; /* Ensure button is above overlay if used */
+        position: relative; /* To ensure z-index works */
+    }
+
+    /* Basic hamburger icon for mobile-menu-btn */
+    .mobile-menu-btn .menu-icon {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--primary);
+        position: relative;
+        transition: background-color 0.3s ease;
+    }
+
+    .mobile-menu-btn .menu-icon::before,
+    .mobile-menu-btn .menu-icon::after {
+        content: '';
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--primary);
+        position: absolute;
+        transition: transform 0.3s ease, top 0.3s ease;
+    }
+
+    .mobile-menu-btn .menu-icon::before {
+        top: -8px;
+    }
+
+    .mobile-menu-btn .menu-icon::after {
+        top: 8px;
+    }
+
+    /* Animation for active mobile menu button */
+    .mobile-menu-btn.active .menu-icon {
+        background-color: transparent;
+    }
+
+    .mobile-menu-btn.active .menu-icon::before {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-btn.active .menu-icon::after {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        gap: var(--spacing-sm); /* Using variable */
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px var(--spacing-md); /* Slightly less padding */
+    }
+    
+    section {
+        padding: var(--spacing-3xl) 0; /* Kept existing value for consistency with higher breakpoint */
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        text-align: center;
+    }
+
+    .footer-col ul {
+        text-align: center;
+        margin-top: var(--spacing-md);
+    }
+
+    .footer-col ul li {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .social-links {
+        justify-content: center; /* Center social links */
+    }
+
+    #newsletterForm {
+        max-width: 300px; /* Constrain newsletter form width */
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero {
+        min-height: 550px; /* Slightly smaller hero on very small screens */
+        padding: var(--spacing-md) 0; /* Add some vertical padding */
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .search-bar input {
+        padding: var(--spacing-sm) var(--spacing-md); /* Using variables */
+    }
+    
+    .filter-tags {
+        gap: var(--spacing-xs); /* Using variable */
+    }
+    
+    .filter-tag {
+        padding: 6px var(--spacing-sm); /* Using variables */
+        font-size: 0.8rem;
+    }
+
+    .contact-container {
+        gap: var(--spacing-xl); /* Reduced gap */
+    }
+
+    .contact-info, .contact-form {
+        padding: var(--spacing-sm); /* Add some padding if background color is used */
+    }
+}

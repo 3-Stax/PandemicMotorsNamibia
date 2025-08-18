@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandemic Motors Namibia | Premium Pre-Owned Vehicles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#home" aria-label="AutoDeals Namibia Home">
+                    <img src="images/logo/logo_pmn.jpg" alt="AutoDeals Namibia Logo">
+                    <div class="logo-text">
+                        <span class="logo-main">Pandemic Motors</span>
+                        <span class="logo-sub">Namibia</span>
+                    </div>
+                </a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle main menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
+                    <li><a href="#cars" class="nav-link">Inventory</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-title">Premium Pre-Owned Vehicles in Namibia</h1>
+                    <p class="hero-subtitle">We offer the finest selection of quality pre-owned vehicles with transparent pricing and exceptional customer service.</p>
+                    <div class="hero-btns">
+                        <a href="#cars" class="btn btn-primary">
+                            <i class="fas fa-car"></i> Browse Inventory
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-phone-alt"></i> Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="inventory" id="cars" aria-labelledby="cars-heading">
+            <div class="container">
+                <h2 id="cars-heading">Available Cars</h2>
+                <div class="search-container">
+                    <div class="search-bar">
+                        <label for="searchInput" class="sr-only">Search for a car</label>
+                        <input type="text" id="searchInput" placeholder="Search for a car by make, model, or year...">
+                        <button id="searchBtn" class="search-btn" aria-label="Search inventory">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="filter-tags" role="group" aria-label="Car categories filter">
+                        <span class="filter-tag active" data-filter="all" tabindex="0" role="button" aria-pressed="true">All</span>
+                        <span class="filter-tag" data-filter="suv" tabindex="0" role="button" aria-pressed="false">SUVs</span>
+                        <span class="filter-tag" data-filter="sedan" tabindex="0" role="button" aria-pressed="false">Sedans</span>
+                        <span class="filter-tag" data-filter="truck" tabindex="0" role="button" aria-pressed="false">Trucks</span>
+                        <span class="filter-tag" data-filter="hatchback" tabindex="0" role="button" aria-pressed="false">Hatchbacks</span>
+                    </div>
+                </div>
+                <div class="car-grid" id="carGrid">
+                    <p>No vehicles found. Please wait while we load our inventory.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services" aria-labelledby="services-heading">
+            <div class="container">
+                <h2 id="services-heading">Our Services</h2>
+                <p class="section-intro">We go beyond just selling cars. Our comprehensive services ensure you have the best ownership experience.</p>
+                
+                <div class="services-grid">
+                    </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <h2 id="testimonials-heading">What Our Customers Say</h2>
+                <div class="testimonial-slider" id="testimonialSlider" role="region" aria-live="polite">
+                    </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Contact Us</h2>
+                <p class="section-intro">Have questions or want to schedule a test drive? Get in touch with our team today.</p>
+                
+                <div class="contact-container">
+                    <address class="contact-info">
+                        <h3>Visit Our Showroom</h3>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <div>
+                                <p>123 Independence Avenue</p>
+                                <p>Windhoek, Namibia</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <div>
+                                <p><a href="tel:+264611234567">+264 61 123 4567</a></p>
+                                <p>Mon-Fri: 8:30AM - 5:30PM</p>
+                                <p>Sat: 9:00AM - 1:00PM</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <div>
+                                <p><a href="mailto:info@autodeals.na">info@autodeals.na</a></p>
+                                <p><a href="mailto:sales@autodeals.na">sales@autodeals.na</a></p>
+                            </div>
+                        </div>
+                    </address>
+                    
+                    <div class="contact-form">
+                        <form id="contactForm" aria-label="Contact form to get in touch">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel">
+                            </div>
+                            <div class="form-group">
+                                <label for="interest">Vehicle Interest (Optional)</label>
+                                <select id="interest" name="interest">
+                                    <option value="">Select a vehicle</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>AutoDeals Namibia</h3>
+                    <p>Namibia's trusted source for quality pre-owned vehicles since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Visit us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Visit us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Visit us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Visit us on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#cars">Inventory</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Vehicle Inspection</a></li>
+                        <li><a href="#">Financing</a></li>
+                        <li><a href="#">Extended Warranty</a></li>
+                        <li><a href="#">Maintenance</a></li>
+                        <li><a href="#">Trade-In</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new arrivals and special offers.</p>
+                    <form id="newsletterForm" aria-label="Newsletter subscription form">
+                        <label for="newsletterEmail" class="sr-only">Your email address</label>
+                        <input type="email" id="newsletterEmail" placeholder="Your email address" required autocomplete="email">
+                        <button type="submit" class="btn btn-accent">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pandemic Motors Namibia. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
