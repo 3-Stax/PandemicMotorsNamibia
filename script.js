@@ -480,3 +480,81 @@ function initPage() {
 
 // Run when DOM is loaded
 document.addEventListener('DOMContentLoaded', initPage);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    function showSlide(index) {
+        // Deactivate all slides and dots
+        slides.forEach((slide) => {
+            slide.classList.remove('active');
+            slide.setAttribute('aria-hidden', 'true');
+        });
+        dots.forEach((dot) => {
+            dot.classList.remove('active');
+            dot.setAttribute('aria-selected', 'false');
+        });
+
+        // Activate the current slide and dot
+        slides[index].classList.add('active');
+        slides[index].setAttribute('aria-hidden', 'false');
+        dots[index].classList.add('active');
+        dots[index].setAttribute('aria-selected', 'true');
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    // Event listeners for navigation buttons
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoSlide();
+    });
+
+    // Event listeners for dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            showSlide(currentIndex);
+            resetAutoSlide();
+        });
+    });
+
+    // Auto-slide functionality
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    // Start the auto-slide when the page loads
+    startAutoSlide();
+
+    // Pause auto-slide on hover for better user experience
+    const heroSection = document.querySelector('.hero');
+    heroSection.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    heroSection.addEventListener('mouseleave', () => startAutoSlide());
+
+    // Initialize the first slide
+    showSlide(currentIndex);
+});

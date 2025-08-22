@@ -36,22 +36,54 @@
 
     <main>
         <section class="hero" id="home" aria-labelledby="hero-title">
-            <div class="hero-overlay"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <h1 id="hero-title">Premium Pre-Owned Vehicles in Namibia</h1>
-                    <p class="hero-subtitle">We offer the finest selection of quality pre-owned vehicles with transparent pricing and exceptional customer service.</p>
-                    <div class="hero-btns">
-                        <a href="#cars" class="btn btn-primary">
-                            <i class="fas fa-car"></i> Browse Inventory
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <i class="fas fa-phone-alt"></i> Get In Touch
-                        </a>
-                    </div>
-                </div>
+    <div class="hero-carousel" role="region" aria-label="Image Carousel of our Vehicles">
+        <div class="carousel-slide active" aria-hidden="false">
+            <img src="images/carousel/car1.jpg" alt="A sleek black sedan parked in a modern showroom." class="carousel-img">
+        </div>
+        <div class="carousel-slide" aria-hidden="true">
+            <img src="images/carousel/car2.jpg" alt="A rugged silver SUV on a dirt road with a beautiful desert landscape in the background." class="carousel-img">
+        </div>
+        <div class="carousel-slide" aria-hidden="true">
+            <img src="images/carousel/car3.jpg" alt="A powerful red truck parked in an urban setting at sunset." class="carousel-img">
+        </div>
+         <div class="carousel-slide" aria-hidden="true">
+            <img src="images/carousel/car4.jpg" alt="A powerful red truck parked in an urban setting at sunset." class="carousel-img">
+        </div> <div class="carousel-slide" aria-hidden="true">
+            <img src="images/carousel/car5.jpg" alt="A powerful red truck parked in an urban setting at sunset." class="carousel-img">
+        </div> <div class="carousel-slide" aria-hidden="true">
+            <img src="images/carousel/car6.jpg" alt="A powerful red truck parked in an urban setting at sunset." class="carousel-img">
+        </div>
+
+        <button class="carousel-btn prev-btn" aria-label="Previous image">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="carousel-btn next-btn" aria-label="Next image">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        
+        <div class="carousel-dots" role="tablist" aria-label="Image slide pagination">
+            <button class="dot active" role="tab" aria-selected="true" aria-controls="slide1" aria-label="Go to slide 1"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-controls="slide2" aria-label="Go to slide 2"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-controls="slide3" aria-label="Go to slide 3"></button>
+        </div>
+    </div>
+    
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h1 id="hero-title">Premium Pre-Owned Vehicles in Namibia</h1>
+            <p class="hero-subtitle">We offer the finest selection of quality pre-owned vehicles with transparent pricing and exceptional customer service.</p>
+            <div class="hero-btns">
+                <a href="#cars" class="btn btn-primary" aria-label="Browse Our Vehicle Inventory">
+                    <i class="fas fa-car" aria-hidden="true"></i> Browse Inventory
+                </a>
+                <a href="#contact" class="btn btn-secondary" aria-label="Get in Touch with Our Team">
+                    <i class="fas fa-phone-alt" aria-hidden="true"></i> Get In Touch
+                </a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <section class="inventory" id="cars" aria-labelledby="cars-heading">
             <div class="container">
@@ -114,7 +146,7 @@
                         <div class="contact-detail">
                             <i class="fas fa-phone" aria-hidden="true"></i>
                             <div>
-                                <p><a href="tel:+264611234567">+264 61 123 4567</a></p>
+                                <p><a href="tel:+264816160682">+264 81 616 0682</a></p>
                                 <p>Mon-Fri: 8:30AM - 5:30PM</p>
                                 <p>Sat: 9:00AM - 1:00PM</p>
                             </div>
@@ -122,8 +154,8 @@
                         <div class="contact-detail">
                             <i class="fas fa-envelope" aria-hidden="true"></i>
                             <div>
-                                <p><a href="mailto:info@autodeals.na">info@autodeals.na</a></p>
-                                <p><a href="mailto:sales@autodeals.na">sales@autodeals.na</a></p>
+                                <p><a href="mailto:info@pandemicmotorsnamibia.io">info@pandemicmotorsnamibia.io</a></p>
+                                <p><a href="mailto:sales@pandemicmotorsnamibia.io">sales@pandemicmotorsnamibia.io</a></p>
                             </div>
                         </div>
                     </address>
@@ -132,15 +164,15 @@
                         <form id="contactForm" aria-label="Contact form to get in touch">
                             <div class="form-group">
                                 <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name" required autocomplete="name">
+                                <input type="text" id="name" name="name" required autocomplete="name" placeholder="First and Last Name">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required autocomplete="email">
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="Email Address">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" autocomplete="tel">
+                                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Phone Number">
                             </div>
                             <div class="form-group">
                                 <label for="interest">Vehicle Interest (Optional)</label>
@@ -150,7 +182,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Your Message</label>
-                                <textarea id="message" name="message" required></textarea>
+                                <textarea id="message" name="message" required placeholder="your message here"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
                         </form>
@@ -164,13 +196,13 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h3>AutoDeals Namibia</h3>
+                    <h3>Pandemic Motors Namibia</h3>
                     <p>Namibia's trusted source for quality pre-owned vehicles since 2010.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Visit us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                        <a href="#" aria-label="Visit us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" aria-label="Visit us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#" aria-label="Visit us on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com" aria-label="Visit us on Facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com" aria-label="Visit us on Instagram" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.x.com" aria-label="Visit us on X" target="_blank"><i class="fab fa-x" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedIn.com" aria-label="Visit us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 
