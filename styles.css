@@ -236,7 +236,7 @@ nav a.active::after {
     justify-content: center;
     text-align: center;
     color: var(--light-text-color);
-    background: url('images/hero/hero_car.jpg') no-repeat center center/cover;
+    
 }
 
 .hero-overlay {
